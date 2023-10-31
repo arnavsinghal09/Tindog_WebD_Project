@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face {
+        font-family: myFont;
+        src: url(vrr.ttf);
+        }
+    .gradient-background{
+        background: linear-gradient(45deg, #00bfff, #ff4c68, #ef8172);
+            background-size: 180% 180%;
+            animation: gradient-animation 18s ease infinite;
+        }
+    body { 
+      font-family: myFont;         
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    header {
+        display: flex;
+            align-items: center;
+            justify-content:first baseline;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 10 rgba(0, 0, 0, 0.1); 
+            position: fixed;
+            width: 100%;
+            top: 0;
+            
+    }
+
+    header img {
+            height: 100px;
+            width: 200px; 
+            margin-right: 555px;
+    }
+    header h1{
+            margin-right: 650px;
+    }
+
+    button {
+            margin-top: 10px;
+            background-color: #ff5252;
+            color: #fff;
+            border: none;
+            padding: 20px,10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            height: 40px;
+    }
+
+    button:hover {
+            background-color: #ff0000;
+    }
+
+    #tinder-container {
+      position: relative;
+      width: 300px;
+      height: 500px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border-radius: 10px;
+    }
+
+    #profile {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    #profile-info {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    #buttons {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: #3498db;
+      color: #fff;
+      font-size: 1.2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+    .home a{
+      text-decoration: none;
+      color: #fff;
+    }
+
+    #dislike {
+      background-color: #e74c3c;
+    }
+
+    #like {
+      background-color: #2ecc71;
+    }
+    #profile-info{
+      margin-left:50px;
+    }
+  </style>
+</head>
+<body class="gradient-background">
+  <header>
+    <img src="logo.png" alt="Tinder Logo" id="logoimg">
+    <h1 id="one">Select Your Partner</h1>
+    <button class="home" type="submit" onclick="location.href='index.html'">Home</button>
+</header>
+  <div id="tinder-container">
+    <div id="profile" style="background-image: url('360_F_571631262_1RZKGvkKsghQx3zWDE7o70l6PXFwJIX4.jpg');">
+      <div id="profile-info">John Doe</div>
+    </div>
+    <div id="buttons">
+      <button class="button" id="dislike" onclick="dislike()">✘</button>
+      <button class="button" id="like" onclick="like()">✔️</button>
+    </div>
+  </div>
+
+  <script>
+    function dislike() {
+      document.getElementById('profile').style.transform = 'translateX(-100%)';
+      setTimeout(() => {
+        document.getElementById('profile').style.transform = 'translateX(0)';
+        document.getElementById('profile').style.backgroundImage = "url('cutest-dog-breeds-scaled-e1655990275393.jpeg')";
+        document.getElementById('profile-info').innerText = "Jane Smith";
+      }, 500);
+    }
+
+    function like() {
+      document.getElementById('profile').style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        document.getElementById('profile').style.transform = 'translateX(0)';
+        document.getElementById('profile').style.backgroundImage = "url('pembroke-welsh-corgi-puppy_1000x.webp')";
+        document.getElementById('profile-info').innerText = "Bob Johnson";
+      }, 500);
+    }
+  </script>
+</body>
+</html>
